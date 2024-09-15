@@ -24,3 +24,13 @@ body {
 .navbar.scrolled .navbar-brand {
   color: #02064e !important;
 }
+
+.nav-link {
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #8e8b5a !important; /* Highlight color */
+}

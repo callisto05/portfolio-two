@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import '../styles/Navbar.css'; // Import the custom CSS file
 
-const NavigationBar = () => {
+const NavigationBar = ({ onAboutClick }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,16 @@ const NavigationBar = () => {
     };
   }, []);
 
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    if (link === 'about') {
+      onAboutClick();
+    }
+    setTimeout(() => {
+      setActiveLink(null);
+    }, 2000); // Unselect after 2 seconds
+  };
+
   let navbarClasses = ['navbar'];
   if (scrolled) {
     navbarClasses.push('scrolled');
@@ -33,10 +44,42 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto text-uppercase">
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#resume">Resume</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
+          <Nav.Link
+              href="#about"
+              className={activeLink === 'about' ? 'active' : ''}
+              onClick={() => handleLinkClick('about')}
+              onMouseEnter={() => setActiveLink('about')}
+              onMouseLeave={() => setActiveLink(null)}
+            >
+              About
+            </Nav.Link>
+            <Nav.Link
+              href="#resume"
+              className={activeLink === 'resume' ? 'active' : ''}
+              onClick={() => handleLinkClick('resume')}
+              onMouseEnter={() => setActiveLink('resume')}
+              onMouseLeave={() => setActiveLink(null)}
+            >
+              Resume
+            </Nav.Link>
+            <Nav.Link
+              href="#projects"
+              className={activeLink === 'projects' ? 'active' : ''}
+              onClick={() => handleLinkClick('projects')}
+              onMouseEnter={() => setActiveLink('projects')}
+              onMouseLeave={() => setActiveLink(null)}
+            >
+              Projects
+            </Nav.Link>
+            <Nav.Link
+              href="#contact"
+              className={activeLink === 'contact' ? 'active' : ''}
+              onClick={() => handleLinkClick('contact')}
+              onMouseEnter={() => setActiveLink('contact')}
+              onMouseLeave={() => setActiveLink(null)}
+            >
+              Contact
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
