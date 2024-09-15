@@ -1,0 +1,26 @@
+/* Navbar.css */
+body {
+  background: url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  transition: background-color 0.3s, color 0.3s;
+  background: transparent !important;
+}
+
+.navbar.scrolled {
+  background-color: white !important;
+}
+
+.navbar.scrolled .nav-link {
+  color: #02064e !important;
+}
+
+.navbar.scrolled .navbar-brand {
+  color: #02064e !important;
+}

@@ -1,0 +1,53 @@
+.hello-container {
+  display: flex;
+  flex-direction: column; /* Ensure the elements are stacked vertically */
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 56px); /* Adjust height considering the Navbar height */
+  text-align: center;
+}
+
+.hello-container h1 {
+  font-size: 1.5rem;
+  color: #fcfcfc;
+}
+
+.hello-container h2 {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #8e8b5a;
+  margin-top: 0.5rem; /* Add some space between h1 and h2 */
+}
+
+.line {
+  width: 3%;
+  height: 3px;
+  background-color: #8e8b5a; /* Color of the line */
+  margin-top: 1rem; /* Space between the name and the line */
+  border-radius: 3px;
+}
+
+.hello-container p {
+  font-size: 1.5rem; /* Increase the font size for paragraphs */
+  margin-top: 1rem;
+  color: #fcfcfc;
+}
+
+.custom-button {
+  margin-top: 1rem; /* Space between the paragraph and the button */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #8e8b5a;
+  border: none;
+  text-transform: uppercase;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+  background-color: #3b4531; /* Darker shade on hover */
+}
