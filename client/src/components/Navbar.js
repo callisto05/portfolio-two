@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import '../styles/Navbar.css'; // Import the custom CSS file
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import "../styles/Navbar.css"; // Import the custom CSS file
 
-const NavigationBar = ({ onAboutClick }) => {
+const NavigationBar = ({ onLinkClick, activeLink, setActiveLink }) => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,67 +15,63 @@ const NavigationBar = ({ onAboutClick }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const handleLinkClick = (link) => {
-    setActiveLink(link);
-    if (link === 'about') {
-      onAboutClick();
-    }
+    onLinkClick(link);
     setTimeout(() => {
       setActiveLink(null);
     }, 2000); // Unselect after 2 seconds
   };
 
-  let navbarClasses = ['navbar'];
+  let navbarClasses = ["navbar"];
   if (scrolled) {
-    navbarClasses.push('scrolled');
+    navbarClasses.push("scrolled");
   }
 
   return (
-    <Navbar className={navbarClasses.join(' ')} variant="dark" expand="lg" sticky="top">
+    <Navbar
+      className={navbarClasses.join(" ")}
+      variant="dark"
+      expand="lg"
+      sticky="top"
+    >
       <Container>
-        <Navbar.Brand href="#home" className="text-uppercase">Prathamesh Bhosale</Navbar.Brand>
+        <Navbar.Brand href="#home" className="text-uppercase">
+          Prathamesh Bhosale
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto text-uppercase">
-          <Nav.Link
+            <Nav.Link
               href="#about"
-              className={activeLink === 'about' ? 'active' : ''}
-              onClick={() => handleLinkClick('about')}
-              onMouseEnter={() => setActiveLink('about')}
-              onMouseLeave={() => setActiveLink(null)}
+              className={`nav-link ${activeLink === "about" ? "active" : ""}`}
+              onClick={() => handleLinkClick("about")}
             >
               About
             </Nav.Link>
             <Nav.Link
               href="#resume"
-              className={activeLink === 'resume' ? 'active' : ''}
-              onClick={() => handleLinkClick('resume')}
-              onMouseEnter={() => setActiveLink('resume')}
-              onMouseLeave={() => setActiveLink(null)}
+              className={`nav-link ${activeLink === "resume" ? "active" : ""}`}
+              onClick={() => handleLinkClick("resume")}
             >
               Resume
             </Nav.Link>
             <Nav.Link
               href="#projects"
-              className={activeLink === 'projects' ? 'active' : ''}
-              onClick={() => handleLinkClick('projects')}
-              onMouseEnter={() => setActiveLink('projects')}
-              onMouseLeave={() => setActiveLink(null)}
+              className={`nav-link ${activeLink === "projects" ? "active" : ""}`}
+              onClick={() => handleLinkClick("projects")}
             >
               Projects
             </Nav.Link>
             <Nav.Link
               href="#contact"
-              className={activeLink === 'contact' ? 'active' : ''}
-              onClick={() => handleLinkClick('contact')}
-              onMouseEnter={() => setActiveLink('contact')}
-              onMouseLeave={() => setActiveLink(null)}
+              className={`nav-link ${activeLink === "contact" ? "active" : ""}`}
+              onClick={() => handleLinkClick("contact")}
             >
               Contact
             </Nav.Link>

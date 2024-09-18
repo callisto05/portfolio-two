@@ -1,6 +1,6 @@
 /* Navbar.css */
 body {
-  background: url('../assets/background.jpg') no-repeat center center fixed;
+  background: url("../assets/background.jpg") no-repeat center center fixed;
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -11,6 +11,7 @@ body {
 .navbar {
   transition: background-color 0.3s, color 0.3s;
   background: transparent !important;
+  font-weight: bold;
 }
 
 .navbar.scrolled {
@@ -26,7 +27,7 @@ body {
 }
 
 .nav-link {
-  color: #fff;
+  color: #fcfcfc !important;
   transition: color 0.3s;
 }
 

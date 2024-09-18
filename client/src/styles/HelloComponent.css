@@ -49,7 +49,7 @@
 }
 
 .custom-button:hover {
-  background-color: #3b4531; /* Darker shade on hover */
+  background-color: #67643d; /* Darker shade on hover */
 }
 
 .sliding-div {
@@ -107,5 +107,5 @@
 }
 
 .next-button:hover {
-  background-color: #3b4531; /* Darker shade on hover */
+  background-color: #67643d; /* Darker shade on hover */
 }
