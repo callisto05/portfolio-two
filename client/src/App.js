@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import HelloComponent from './components/HelloComponent';
-import ContactForm from './components/ContactForm';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import HelloComponent from "./components/HelloComponent";
+import ContactForm from "./components/ContactForm";
+import ResumePopup from "./components/ResumePopup";
 
 function App() {
   const [visibleDiv, setVisibleDiv] = useState(null);
   const [activeLink, setActiveLink] = useState(null);
   const [showContactForm, setShowContactForm] = useState(false);
-
-  // const handleAboutClick = () => {
-  //   setVisibleDiv('sliding-div-1');
-  // };
+  const [showResumePopup, setShowResumePopup] = useState(false);
 
   const handleLinkClick = (link) => {
     if (link === "contact") {
@@ -18,6 +16,8 @@ function App() {
     } else if (link === "about") {
       setVisibleDiv(`sliding-div-1`);
       setActiveLink(link);
+    } else if (link === "resume") {
+      setShowResumePopup(true);
     }
   };
 
@@ -34,15 +34,26 @@ function App() {
     setShowContactForm(false);
   };
 
+  const handleCloseResumePopup = () => {
+    setShowResumePopup(false);
+  };
+
   return (
     <div>
-      <Navbar onLinkClick={handleLinkClick} activeLink={activeLink} setActiveLink={ setActiveLink} />
+      <Navbar
+        onLinkClick={handleLinkClick}
+        activeLink={activeLink}
+        setActiveLink={setActiveLink}
+      />
       <HelloComponent
         visibleDiv={visibleDiv}
         onCloseClick={handleCloseClick}
         onNextClick={handleNextClick}
       />
       {showContactForm && <ContactForm onClose={handleCloseContactForm} />}
+      {showResumePopup && (
+        <ResumePopup show={showResumePopup} onHide={handleCloseResumePopup} />
+      )}
       {/* Add other components and content here */}
     </div>
   );
