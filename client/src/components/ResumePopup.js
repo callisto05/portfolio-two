@@ -18,7 +18,7 @@ const ResumePopup = ({ show, onHide }) => {
       "https://www.linkedin.com/in/dev-prathamesh-bhosale/",
       "_blank"
     );
-    onHide();
+    handleClose();
   };
 
   const handleClose = () => {

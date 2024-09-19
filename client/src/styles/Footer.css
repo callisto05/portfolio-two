@@ -1,0 +1,58 @@
+/* Footer.css */
+.footer {
+  color: #fcfcfc;
+  padding: 10px 0;
+  background-color: rgba(2, 6, 45, 0.85);
+  width: 100%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.footer.scrolled {
+  background-color: white;
+}
+
+.footer.scrolled .footer-content {
+  color: #02064e;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icon {
+    color: #fcfcfc;
+    margin-left: 15px;
+    transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    color: #8e8b5a;
+}
+
+.social-icon {
+  color: #fcfcfc;
+  margin-left: 15px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.5);
+  color: #8e8b5a;
+}
+
+.thunder-icon {
+  color: #8e8b5a;
+  animation: flash 3s infinite;
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}

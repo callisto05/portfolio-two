@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import HelloComponent from "./components/HelloComponent";
 import ContactForm from "./components/ContactForm";
 import ResumePopup from "./components/ResumePopup";
+import Footer from "./components/Footer";
 
 function App() {
   const [visibleDiv, setVisibleDiv] = useState(null);
@@ -50,11 +51,12 @@ function App() {
         onCloseClick={handleCloseClick}
         onNextClick={handleNextClick}
       />
+      {/* conditional rendering of components*/}
       {showContactForm && <ContactForm onClose={handleCloseContactForm} />}
       {showResumePopup && (
         <ResumePopup show={showResumePopup} onHide={handleCloseResumePopup} />
       )}
-      {/* Add other components and content here */}
+      <Footer />
     </div>
   );
 }
